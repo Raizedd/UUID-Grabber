@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        @font-face { font-family: MinecraftTen; src: url('MinecraftTen.ttf'); } 
+        h1 {
+           font-family: MinecraftTen;
+        }
+    </style>
+    <h1>PROFILE UUID GRABBER</h1>
+    <style>
+        @font-face { font-family: Minecraft; src: url('Minecraft.ttf'); } 
+        input {
+           font-family: Minecraft;
+        }
+    </style>
+    <input placeholder="Username" id='textbox_id2'>
+    <br>
+    <br>
+    <button onclick="apiEmbedSet()" id='embedSet'>Generate Embed</button>
+    <br>
+    <br>
+    <div id="container">
+        <iframe id="apiEmbed" src=""></iframe>
+    </div>
+
+    <div class="font-mc-ten">Player UUID</div>
+    <input type="checkbox" id='checkbox-body'>Full skin</input>
+    <input type="checkbox" id='checkbox-png'>downloadabe skin</input>
+    <input type="checkbox" id='checkbox-face'>face texture</input>
+    <br>
+    <input placeholder="Valid UUID" id='textbox_id'>
+    <br>
+    <br>
+    <button onclick="getSkin()">Get Skin</button>
+
+    <script>
+        function getSkin() {
+            if (document.getElementById('checkbox-body').checked){
+                window.open('https://crafatar.com/renders/body/' + document.getElementById('textbox_id').value + '?overlay=true');
+            }
+
+            if (document.getElementById('checkbox-png').checked){
+                window.open('https://crafatar.com/skins/' + document.getElementById('textbox_id').value);
+            }
+
+            if (document.getElementById('checkbox-face').checked){
+                window.open('https://crafatar.com/avatars/' + document.getElementById('textbox_id').value);
+            }
+            
+        }
+
+        function apiEmbedSet(){
+            document.getElementById('apiEmbed').src = 'https://api.mojang.com/users/profiles/minecraft/' + document.getElementById('textbox_id2').value;
+        }
+    </script>
+    <p>Special thanks to <a class="hyperlink" href="https://crafatar.com">Crafatar</a> for providing avatars.</p>
+    <p>And Mojang for providing uuid's with the <a class="hyperlink" href="https://api.mojang.com">Mojang Api</a> and css from <a href="https://minecraft.net/en-us" class="hyperlink">Minecraft.net</a></p>
+    <br>
+    <br>
+    <p>Website Created By: <a href="https://github.com/raizedd" href="https://icons8.com/icon/82787/external-link" class="hyperlink">Raizedd</a></p>
+</body>
+</html>
